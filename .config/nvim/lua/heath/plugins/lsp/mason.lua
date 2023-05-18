@@ -17,7 +17,15 @@ if not mason_null_ls_status then
 end
 
 -- enable mason
-mason.setup()
+mason.setup({
+  ui = {
+    icons = {
+      package_installed = "",
+      package_pending = "",
+      package_uninstalled = "",
+    },
+  },
+})
 
 mason_lspconfig.setup({
   -- list of servers for mason to install
@@ -28,6 +36,7 @@ mason_lspconfig.setup({
     "tailwindcss",
     "lua_ls",
     "emmet_ls",
+    "rust_analyzer",
   },
   -- auto-install configured servers (with lspconfig)
   automatic_installation = true, -- not the same as ensure_installed
@@ -43,4 +52,3 @@ mason_null_ls.setup({
   -- auto-install configured formatters & linters (with null-ls)
   automatic_installation = true,
 })
-

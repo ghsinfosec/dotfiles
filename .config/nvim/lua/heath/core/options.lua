@@ -38,3 +38,13 @@ opt.splitright = true
 opt.splitbelow = true
 
 opt.iskeyword:append("-")
+
+-- completeopt
+opt.completeopt = { "menuone", "noselect", "noinsert" }
+opt.shortmess = opt.shortmess + { c = true }
+vim.api.nvim_set_option("updatetime", 300)
+
+vim.cmd([[
+set signcolumn=yes
+autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
+]])
